@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vtr Effects',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
-      home: const LoginPage(),
+      home: const MyHomePage(title: 'VTR EFFECTS'),
+      //const LoginPage()
     );
   }
 }
@@ -44,10 +45,38 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           child: Column(
         children: [
+          SizedBox(height: 150),
           Container(
             width: 200,
             height: 200,
             child: Image.asset('assets/images/logo.png'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.yellow[800]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+              child: const Text('Acessar'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.yellow[800]),
+              onPressed: () {},
+              child: const Text('Registrar'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.yellow[800]),
+              onPressed: () {},
+              child: const Text('Visitante'),
+            ),
           )
         ],
       )),

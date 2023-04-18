@@ -43,28 +43,28 @@ class _LoginPageState extends State<LoginPage> {
                 onChanged: (text) {
                   login = text;
                 },
-                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                decoration: const InputDecoration(
                     labelText: "Login",
                     border: OutlineInputBorder(),
                     hoverColor: Color.fromRGBO(255, 255, 255, 1)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               TextField(
                 onChanged: (text) {
                   senha = text;
                 },
-                style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   fillColor: Color.fromRGBO(255, 255, 255, 1),
                   labelText: "Password",
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               ElevatedButton(
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                     print('Correto');
                   }
                 },
-                child: Text('Entrar'),
+                child: const Text('Entrar'),
               )
             ]),
           )),
