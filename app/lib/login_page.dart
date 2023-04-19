@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           backgroundColor: const Color.fromRGBO(13, 14, 35, 1),
         ),
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+        backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
         body: Padding(
           padding: const EdgeInsets.all(45.0),
           child: SingleChildScrollView(
@@ -43,10 +43,15 @@ class _LoginPageState extends State<LoginPage> {
                 onChanged: (text) {
                   login = text;
                 },
-                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                style:
+                    const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 decoration: const InputDecoration(
                     labelText: "Login",
-                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(color: Colors.white),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white, width: 5)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
                     hoverColor: Color.fromRGBO(255, 255, 255, 1)),
               ),
               const SizedBox(
@@ -56,12 +61,18 @@ class _LoginPageState extends State<LoginPage> {
                 onChanged: (text) {
                   senha = text;
                 },
-                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                style:
+                    const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 obscureText: true,
                 decoration: const InputDecoration(
                   fillColor: Color.fromRGBO(255, 255, 255, 1),
                   labelText: "Password",
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(color: Colors.white),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white, width: 5)),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)),
+                  hoverColor: Color.fromRGBO(255, 255, 255, 1),
                 ),
               ),
               const SizedBox(

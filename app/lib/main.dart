@@ -1,3 +1,5 @@
+import 'package:app/home_page.dart';
+import 'package:app/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app/login_page.dart';
 
@@ -41,12 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(13, 14, 35, 100),
+      backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
       body: Center(
           child: Column(
         children: [
           SizedBox(height: 150),
-          Container(
+          SizedBox(
             width: 200,
             height: 200,
             child: Image.asset('assets/images/logo.png'),
@@ -54,10 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: Colors.yellow[800]),
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
+                //Navigator.push(context,
+                //MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               child: const Text('Acessar'),
             ),
@@ -65,16 +68,26 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: Colors.yellow[800]),
-              onPressed: () {},
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const register_page()));
+              },
               child: const Text('Registrar'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: Colors.yellow[800]),
-              onPressed: () {},
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const home_page()));
+              },
               child: const Text('Visitante'),
             ),
           )
