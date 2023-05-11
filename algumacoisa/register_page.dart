@@ -101,6 +101,9 @@ class _register_pageState extends State<register_page> {
               const SizedBox(
                 height: 15,
               ),
+              const SizedBox(
+                height: 15,
+              ),
               TextField(
                 onChanged: (text) {
                   senha = text;
