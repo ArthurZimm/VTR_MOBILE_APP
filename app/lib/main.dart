@@ -1,7 +1,8 @@
-import 'package:app/home_page.dart';
-import 'package:app/register_page.dart';
+import 'package:app/screens/about_page.dart';
+
 import 'package:flutter/material.dart';
-import 'package:app/login_page.dart';
+import 'package:app/screens/login_page.dart';
+import 'package:app/splashscreen/my_splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Vtr Effects',
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
-      home: const MyHomePage(title: 'VTR EFFECTS'),
+    return const MaterialApp(
+      home: MySplashScreen(),
       //const LoginPage()
     );
   }
@@ -42,6 +41,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+              Color.fromARGB(255, 1, 1, 32),
+              Color.fromARGB(255, 1, 1, 32),
+              Color.fromARGB(255, 41, 70, 114),
+            ])),
+        child: SizedBox(
+          width: 200,
+          height: 200,
+          child: Image.asset('assets/images/logo.png'),
+        ));
+  }
+}
+
+
+
+/*@override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
       body: Center(
@@ -59,8 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
               style:
                   ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
               onPressed: () {
-                //Navigator.push(context,
-                //MaterialPageRoute(builder: (context) => const LoginPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               child: const Text('Acessar'),
             ),
@@ -96,3 +117,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/

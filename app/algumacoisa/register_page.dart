@@ -34,25 +34,6 @@ class _register_pageState extends State<register_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              ElevatedButton(
-                  onPressed: null,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: Image.asset('assets/images/logo.png'),
-                      )
-                    ],
-                  )),
-              const Text("VTR EFFECTS"),
-            ],
-          ),
-          backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
-        ),
         backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
         body: Padding(
           padding: const EdgeInsets.all(80.0),
@@ -110,6 +91,15 @@ class _register_pageState extends State<register_page> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white)),
                     hoverColor: Color.fromRGBO(255, 255, 255, 1)),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const SizedBox(
+                height: 15,
               ),
               const SizedBox(
                 height: 15,
