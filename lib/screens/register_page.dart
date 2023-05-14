@@ -35,37 +35,38 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _page() {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _icon(),
-            const SizedBox(height: 20),
-            _inputField("Nome", usernameController),
-            const SizedBox(height: 20),
-            _inputField("Senha", passwordController, isPassword: true),
-            const SizedBox(height: 20),
-            _inputField("Confirme a senha", passwordController,
-                isPassword: true),
-            const SizedBox(height: 20),
-            _inputField("Email", passwordController, isPassword: true),
-            const SizedBox(height: 30),
-            _loginBtn(),
-            const SizedBox(height: 20),
-            _extraText(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const conector_basic()));
-                },
-                child: const Text("Voltar"))
-          ],
-        ),
-      ),
-    );
+        padding: const EdgeInsets.all(32.0),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _icon(),
+                const SizedBox(height: 20),
+                _inputField("Nome", usernameController),
+                const SizedBox(height: 20),
+                _inputField("Senha", passwordController, isPassword: true),
+                const SizedBox(height: 20),
+                _inputField("Confirme a senha", passwordController,
+                    isPassword: true),
+                const SizedBox(height: 20),
+                _inputField("Email", passwordController, isPassword: true),
+                const SizedBox(height: 30),
+                _loginBtn(),
+                const SizedBox(height: 20),
+                _extraText(),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const conector_basic()));
+                    },
+                    child: const Text("Voltar"))
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget _icon() {
