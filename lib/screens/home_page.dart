@@ -47,11 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _page() {
     return Column(children: [
+      bar(),
       Padding(
         padding: const EdgeInsets.all(0),
         child: Padding(
           padding: const EdgeInsetsDirectional.only(
-              start: 1, top: 150, end: 1, bottom: 1),
+              start: 1, top: 40, end: 1, bottom: 1),
           child: CarouselSlider(
             options: CarouselOptions(height: 200),
             items: ['assets/images/kailani.png', 'assets/images/narciso.png']
@@ -95,8 +96,8 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           GestureDetector(
-            onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ContactPage())),
+            onTap: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => LoginPage())),
             child: Container(
               width: 120,
               height: 120,
@@ -133,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(width: 40),
           GestureDetector(
             onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ContactPage())),
+                MaterialPageRoute(builder: (context) => const ContactPage())),
             child: Container(
               width: 120,
               height: 120,
@@ -141,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: const DecorationImage(
                     image: AssetImage('assets/images/artistas.png')),
                 border: Border.all(
-                    width: 5, color: Color.fromARGB(0, 255, 235, 59)),
+                    width: 5, color: const Color.fromARGB(0, 255, 235, 59)),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
@@ -176,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           GestureDetector(
             onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ContactPage())),
+                MaterialPageRoute(builder: (context) => const ContactPage())),
             child: Container(
               width: 120,
               height: 120,
@@ -184,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: const DecorationImage(
                     image: AssetImage('assets/images/sobre.png')),
                 border: Border.all(
-                    width: 5, color: Color.fromARGB(0, 255, 235, 59)),
+                    width: 5, color: const Color.fromARGB(0, 255, 235, 59)),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
@@ -215,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           GestureDetector(
             onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ContactPage())),
+                MaterialPageRoute(builder: (context) => const ContactPage())),
             child: Container(
               width: 120,
               height: 120,
@@ -223,7 +224,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: const DecorationImage(
                     image: AssetImage('assets/images/contato.png')),
                 border: Border.all(
-                    width: 5, color: Color.fromARGB(0, 255, 235, 59)),
+                    width: 5, color: const Color.fromARGB(0, 255, 235, 59)),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
@@ -253,6 +254,65 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       )
     ]);
+  }
+
+  @override
+  Widget bar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        const SizedBox(height: 150),
+        GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen())),
+          child: Container(
+            width: 70,
+            height: 70,
+            decoration: const BoxDecoration(
+              image:
+                  DecorationImage(image: AssetImage('assets/images/logo.png')),
+            ),
+            child: const SizedBox(
+              width: 0,
+              height: 0,
+            ),
+          ),
+        ),
+        const SizedBox(width: 200),
+        GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen())),
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/profile.png')),
+            ),
+            child: const SizedBox(
+              width: 70,
+              height: 70,
+              child: SizedBox(
+                width: 0,
+                height: 0,
+              ),
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen())),
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/notification.png')),
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
 

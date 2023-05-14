@@ -35,6 +35,7 @@ class _ContactPageState extends State<ContactPage> {
 
   Widget _page() {
     return Padding(
+      
         padding: const EdgeInsets.all(32.0),
         child: SingleChildScrollView(
           child: Center(
