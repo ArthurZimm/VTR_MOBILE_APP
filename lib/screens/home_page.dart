@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:app/screens/login_page.dart';
+import 'package:app/screens/contact_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,73 +30,143 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  // Widget bar() {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       actions: [
+  //         IconButton(
+  //             onPressed: () {
+  //               Navigator.push(context,
+  //                   MaterialPageRoute(builder: (context) => LoginPage()));
+  //             },
+  //             icon: Icon(Icons.notifications))
+  //       ],
+  //     ),
+  //   );
+  // }
+
   Widget _page() {
     return Column(children: [
       Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(100.0),
-            child: CarouselSlider(
-              options: CarouselOptions(height: 200),
-              items: ['assets/images/kailani.png', 'assets/images/narciso.png']
-                  .map((i) {
-                return Builder(builder: (BuildContext context) {
-                  return Container(
-                    width: 100,
-                    height: 100,
-                    margin: const EdgeInsets.symmetric(horizontal: 0.50),
-                    child: Column(
-                      children: [
-                        Image.asset(i),
-                        const SizedBox(
-                          height: 10,
+        padding: const EdgeInsets.all(0),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.only(
+              start: 1, top: 150, end: 1, bottom: 1),
+          child: CarouselSlider(
+            options: CarouselOptions(height: 200),
+            items: ['assets/images/kailani.png', 'assets/images/narciso.png']
+                .map((i) {
+              return Builder(builder: (BuildContext context) {
+                return Container(
+                  width: 100,
+                  margin: const EdgeInsets.symmetric(horizontal: 0),
+                  child: Column(
+                    children: [
+                      Image.asset(i),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      if (i == 'assets/images/kailani.png')
+                        Text(
+                          nomesInstrumentos[0],
+                          style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
                         ),
-                        if (i == 'assets/images/kailani.png')
-                          Text(
-                            nomesInstrumentos[0],
-                            style: const TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white),
-                          ),
-                        if (i == 'assets/images/narciso.png')
-                          Text(
-                            nomesInstrumentos[1],
-                            style: const TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white),
-                          ),
-                      ],
-                    ),
-                  );
-                });
-              }).toList(),
-            ),
+                      if (i == 'assets/images/narciso.png')
+                        Text(
+                          nomesInstrumentos[1],
+                          style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
+                        ),
+                    ],
+                  ),
+                );
+              });
+            }).toList(),
           ),
         ),
       ),
+      const SizedBox(height: 40),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage())),
-              child: Image.asset(
-                'assets/images/loja.png',
-                width: 100,
-                height: 100,
-              )),
-          const SizedBox(width: 70),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ContactPage())),
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage('assets/images/loja.png')),
+                border: Border.all(
+                    width: 5, color: const Color.fromARGB(0, 255, 235, 59)),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromARGB(52, 255, 255, 0),
+                    offset: Offset(
+                      0,
+                      0,
+                    ),
+                    blurRadius: 0.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Color.fromARGB(127, 90, 105, 172),
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: const SizedBox(
+                width: 120,
+                height: 120,
+              ),
+            ),
+          ),
+          const SizedBox(width: 40),
           GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage())),
-              child: Image.asset(
-                'assets/images/artistas.png',
-                width: 100,
-                height: 100,
-              )),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ContactPage())),
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage('assets/images/artistas.png')),
+                border: Border.all(
+                    width: 5, color: Color.fromARGB(0, 255, 235, 59)),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromARGB(52, 255, 255, 0),
+                    offset: Offset(
+                      0,
+                      0,
+                    ),
+                    blurRadius: 0.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Color.fromARGB(127, 90, 105, 172),
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: const SizedBox(
+                width: 120,
+                height: 120,
+              ),
+            ),
+          ),
           const SizedBox(height: 80),
         ],
       ),
@@ -104,27 +175,89 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage())),
-              child: Image.asset(
-                'assets/images/sobre.png',
-                width: 100,
-                height: 100,
-              )),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ContactPage())),
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage('assets/images/sobre.png')),
+                border: Border.all(
+                    width: 5, color: Color.fromARGB(0, 255, 235, 59)),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromARGB(52, 255, 255, 0),
+                    offset: Offset(
+                      0,
+                      0,
+                    ),
+                    blurRadius: 0.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Color.fromARGB(127, 90, 105, 172),
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: const SizedBox(
+                width: 120,
+                height: 120,
+              ),
+            ),
+          ),
           const SizedBox(
-            width: 70,
+            width: 40,
           ),
           GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage())),
-              child: Image.asset(
-                'assets/images/contato.png',
-                width: 100,
-                height: 100,
-              )),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ContactPage())),
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage('assets/images/contato.png')),
+                border: Border.all(
+                    width: 5, color: Color.fromARGB(0, 255, 235, 59)),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromARGB(52, 255, 255, 0),
+                    offset: Offset(
+                      0,
+                      0,
+                    ),
+                    blurRadius: 0.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Color.fromARGB(127, 90, 105, 172),
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: const SizedBox(
+                width: 200,
+                height: 200,
+              ),
+            ),
+          ),
           const SizedBox(height: 80),
         ],
       )
     ]);
   }
 }
+
+// Image.asset(
+//                 'assets/images/contato.png',
+//                 width: 100,
+//                 height: 100,
+//               )
