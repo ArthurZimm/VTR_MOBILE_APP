@@ -1,7 +1,8 @@
 import 'package:app/screens/contact_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/login_page.dart';
-import 'package:app/screens/about_page.dart';
+import 'package:app/screens/register_page.dart';
+import 'package:app/screens/home_page.dart';
 
 class conector_basic extends StatefulWidget {
   const conector_basic({super.key});
@@ -18,7 +19,7 @@ class _conector_basicState extends State<conector_basic> {
       body: Center(
           child: Column(
         children: [
-          SizedBox(height: 150),
+          const SizedBox(height: 150),
           SizedBox(
             width: 200,
             height: 200,
@@ -33,23 +34,21 @@ class _conector_basicState extends State<conector_basic> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginPage()));
               },
-              child: const Text('Acessar'),
+              child: const Text('login'),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(10.0),
-          //   child: ElevatedButton(
-          //     style:
-          //         ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
-          //     onPressed: () {
-          //       Navigator.push(
-          //           context,
-          //           MaterialPageRoute(
-          //               builder: (context) => const register_page()));
-          //     },
-          //     child: const Text('Registrar'),
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()));
+              },
+              child: const Text('Registro '),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: ElevatedButton(
@@ -61,7 +60,21 @@ class _conector_basicState extends State<conector_basic> {
                     MaterialPageRoute(
                         builder: (context) => const ContactPage()));
               },
-              child: const Text('Visitante'),
+              child: const Text('contato'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen()));
+              },
+              child: const Text('home'),
             ),
           )
         ],

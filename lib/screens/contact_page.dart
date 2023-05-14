@@ -67,11 +67,12 @@ class _ContactPageState extends State<ContactPage> {
 
   Widget _icon() {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 2),
-          shape: BoxShape.circle),
-      child: const Icon(Icons.person, color: Colors.white, size: 120),
-    );
+        child: Column(children: [
+      const SizedBox(height: 20),
+      SizedBox(
+        child: Image.asset('assets/images/logo.png'),
+      )
+    ]));
   }
 
   Widget _inputField(String hintText, TextEditingController controller,

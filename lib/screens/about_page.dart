@@ -56,8 +56,7 @@ class _home_pageState extends State<home_page> {
               Color.fromARGB(255, 1, 1, 32),
               Color.fromARGB(255, 1, 1, 32),
               Color.fromARGB(255, 41, 70, 114),
-            ])),
-        child: Center(
+            ])),        child: Center(
           child: Text(
             texto,
             textDirection: TextDirection.ltr,
