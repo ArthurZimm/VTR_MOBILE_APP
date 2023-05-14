@@ -48,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _page() {
     return Column(children: [
       bar(),
+      lineappbar(),
       Padding(
         padding: const EdgeInsets.all(0),
         child: Padding(
@@ -259,22 +260,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget bar() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const SizedBox(height: 150),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomeScreen())),
           child: Container(
-            width: 70,
-            height: 70,
+            width: 50,
+            height: 50,
             decoration: const BoxDecoration(
               image:
                   DecorationImage(image: AssetImage('assets/images/logo.png')),
-            ),
-            child: const SizedBox(
-              width: 0,
-              height: 0,
             ),
           ),
         ),
@@ -283,19 +280,11 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomeScreen())),
           child: Container(
-            width: 60,
-            height: 60,
+            width: 40,
+            height: 40,
             decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/profile.png')),
-            ),
-            child: const SizedBox(
-              width: 70,
-              height: 70,
-              child: SizedBox(
-                width: 0,
-                height: 0,
-              ),
             ),
           ),
         ),
@@ -303,8 +292,8 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomeScreen())),
           child: Container(
-            width: 60,
-            height: 60,
+            width: 40,
+            height: 40,
             decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/notification.png')),
@@ -312,6 +301,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         )
       ],
+    );
+  }
+
+  @override
+  Widget lineappbar() {
+    return Container(
+      height: 0,
+      width: 350,
+      decoration: const BoxDecoration(
+          border: Border(
+        bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 5),
+      )),
     );
   }
 }
