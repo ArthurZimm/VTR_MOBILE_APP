@@ -262,7 +262,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const SizedBox(height: 150),
+        const Padding(
+            padding: EdgeInsets.all(0),
+            child: Padding(
+                padding: EdgeInsetsDirectional.only(
+                    start: 1, top: 85, end: 1, bottom: 10))),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomeScreen())),
@@ -308,10 +312,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget lineappbar() {
     return Container(
       height: 0,
-      width: 350,
+      width: 370,
       decoration: const BoxDecoration(
           border: Border(
-        bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 5),
+        bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 1),
       )),
     );
   }
