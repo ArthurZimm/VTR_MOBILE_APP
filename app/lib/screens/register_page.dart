@@ -1,5 +1,6 @@
 import 'package:app/screens/conector.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -9,6 +10,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordsecondController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,41 +35,48 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _page() {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _icon(),
-            const SizedBox(height: 50),
-            _inputField("Username", usernameController),
-            const SizedBox(height: 20),
-            _inputField("Password", passwordController, isPassword: true),
-            const SizedBox(height: 30),
-            _loginBtn(),
-            const SizedBox(height: 20),
-            _extraText(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const conector_basic()));
-                },
-                child: const Text("Voltar"))
-          ],
-        ),
-      ),
-    );
+        padding: const EdgeInsets.all(32.0),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _icon(),
+                const SizedBox(height: 20),
+                _inputField("Nome", usernameController),
+                const SizedBox(height: 20),
+                _inputField("Senha", passwordController, isPassword: true),
+                const SizedBox(height: 20),
+                _inputField("Confirme a senha", passwordController,
+                    isPassword: true),
+                const SizedBox(height: 20),
+                _inputField("Email", passwordController, isPassword: true),
+                const SizedBox(height: 30),
+                _loginBtn(),
+                const SizedBox(height: 20),
+                _extraText(),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const conector_basic()));
+                    },
+                    child: const Text("Voltar"))
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget _icon() {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 2),
-          shape: BoxShape.circle),
-      child: const Icon(Icons.person, color: Colors.white, size: 120),
-    );
+        child: Column(children: [
+      const SizedBox(height: 20),
+      SizedBox(
+        child: Image.asset('assets/images/logo.png'),
+      )
+    ]));
   }
 
   Widget _inputField(String hintText, TextEditingController controller,
@@ -93,6 +103,13 @@ class _RegisterPageState extends State<RegisterPage> {
       onPressed: () {
         debugPrint("Username : " + usernameController.text);
         debugPrint("Password : " + passwordController.text);
+        debugPrint("PasswordSecond : " + passwordsecondController.text);
+        debugPrint("Email : " + emailController.text);
+        if (passwordController.text == passwordsecondController.text) {
+          debugPrint("password está correta");
+        } else {
+          debugPrint("password incorrect");
+        }
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
@@ -118,7 +135,6 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
-
 // class RegisterPage extends StatefulWidget {
 //   const RegisterPage({super.key});
 

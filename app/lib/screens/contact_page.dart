@@ -35,43 +35,46 @@ class _ContactPageState extends State<ContactPage> {
 
   Widget _page() {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _icon(),
-            _extraText(),
-            const SizedBox(height: 12),
-            _inputField("Nome", nomeController),
-            const SizedBox(height: 12),
-            _inputField("Email", emailController),
-            const SizedBox(height: 12),
-            _inputFieldText("Text", TextController),
-            const SizedBox(height: 12),
-            _sendBtn(),
-            const SizedBox(height: 1),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const conector_basic()));
-                },
-                child: const Text("Voltar"))
-          ],
-        ),
-      ),
-    );
+      
+        padding: const EdgeInsets.all(32.0),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _icon(),
+                _extraText(),
+                const SizedBox(height: 12),
+                _inputField("Nome", nomeController),
+                const SizedBox(height: 12),
+                _inputField("Email", emailController),
+                const SizedBox(height: 12),
+                _inputFieldText("Text", TextController),
+                const SizedBox(height: 12),
+                _sendBtn(),
+                const SizedBox(height: 1),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const conector_basic()));
+                    },
+                    child: const Text("Voltar"))
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget _icon() {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 2),
-          shape: BoxShape.circle),
-      child: const Icon(Icons.person, color: Colors.white, size: 120),
-    );
+        child: Column(children: [
+      const SizedBox(height: 20),
+      SizedBox(
+        child: Image.asset('assets/images/logo.png'),
+      )
+    ]));
   }
 
   Widget _inputField(String hintText, TextEditingController controller,

@@ -32,41 +32,42 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _page() {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _icon(),
-            const SizedBox(height: 50),
-            _inputField("Username", usernameController),
-            const SizedBox(height: 20),
-            _inputField("Password", passwordController, isPassword: true),
-            const SizedBox(height: 30),
-            _loginBtn(),
-            const SizedBox(height: 20),
-            _extraText(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const conector_basic()));
-                },
-                child: const Text("Voltar"))
-          ],
-        ),
-      ),
-    );
+        padding: const EdgeInsets.all(32.0),
+        child: SingleChildScrollView(
+            child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _icon(),
+              const SizedBox(height: 50),
+              _inputField("Username", usernameController),
+              const SizedBox(height: 20),
+              _inputField("Password", passwordController, isPassword: true),
+              const SizedBox(height: 30),
+              _loginBtn(),
+              const SizedBox(height: 20),
+              _extraText(),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const conector_basic()));
+                  },
+                  child: const Text("Voltar"))
+            ],
+          ),
+        )));
   }
 
   Widget _icon() {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 2),
-          shape: BoxShape.circle),
-      child: const Icon(Icons.person, color: Colors.white, size: 120),
-    );
+        child: Column(children: [
+      const SizedBox(height: 20),
+      SizedBox(
+        child: Image.asset('assets/images/logo.png'),
+      )
+    ]));
   }
 
   Widget _inputField(String hintText, TextEditingController controller,
