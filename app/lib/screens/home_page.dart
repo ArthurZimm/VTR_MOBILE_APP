@@ -92,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      lineappbar(),
       const SizedBox(height: 40),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -110,19 +111,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(52, 255, 255, 0),
+                    color: Color.fromARGB(5, 255, 255, 0),
                     offset: Offset(
                       0,
                       0,
                     ),
                     blurRadius: 0.0,
-                    spreadRadius: 2.0,
+                    spreadRadius: 0.0,
                   ), //BoxShadow
                   BoxShadow(
-                    color: Color.fromARGB(127, 90, 105, 172),
+                    color: Color.fromARGB(50, 90, 105, 172),
                     offset: Offset(0.0, 0.0),
                     blurRadius: 0.0,
-                    spreadRadius: 0.0,
+                    spreadRadius: 1.0,
                   ), //BoxShadow
                 ],
               ),
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          const SizedBox(width: 40),
+          const SizedBox(width: 60),
           GestureDetector(
             onTap: () => Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ContactPage())),
@@ -144,22 +145,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     image: AssetImage('assets/images/artistas.png')),
                 border: Border.all(
                     width: 5, color: const Color.fromARGB(0, 255, 235, 59)),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(15),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(52, 255, 255, 0),
+                    color: Color.fromARGB(5, 255, 255, 0),
                     offset: Offset(
                       0,
                       0,
                     ),
                     blurRadius: 0.0,
-                    spreadRadius: 2.0,
+                    spreadRadius: 0.0,
                   ), //BoxShadow
                   BoxShadow(
-                    color: Color.fromARGB(127, 90, 105, 172),
+                    color: Color.fromARGB(50, 90, 105, 172),
                     offset: Offset(0.0, 0.0),
                     blurRadius: 0.0,
-                    spreadRadius: 0.0,
+                    spreadRadius: 1.0,
                   ), //BoxShadow
                 ],
               ),
@@ -172,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 80),
         ],
       ),
-      const SizedBox(height: 20),
+      const SizedBox(height: 50),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -190,19 +191,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(52, 255, 255, 0),
+                    color: Color.fromARGB(5, 255, 255, 0),
                     offset: Offset(
                       0,
                       0,
                     ),
                     blurRadius: 0.0,
-                    spreadRadius: 2.0,
+                    spreadRadius: 0.0,
                   ), //BoxShadow
                   BoxShadow(
-                    color: Color.fromARGB(127, 90, 105, 172),
+                    color: Color.fromARGB(50, 90, 105, 172),
                     offset: Offset(0.0, 0.0),
                     blurRadius: 0.0,
-                    spreadRadius: 0.0,
+                    spreadRadius: 1.0,
                   ), //BoxShadow
                 ],
               ),
@@ -213,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(
-            width: 40,
+            width: 60,
           ),
           GestureDetector(
             onTap: () => Navigator.push(context,
@@ -225,23 +226,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: const DecorationImage(
                     image: AssetImage('assets/images/contato.png')),
                 border: Border.all(
-                    width: 5, color: const Color.fromARGB(0, 255, 235, 59)),
+                    width: 0, color: const Color.fromARGB(0, 255, 235, 59)),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(52, 255, 255, 0),
+                    color: Color.fromARGB(5, 255, 255, 0),
                     offset: Offset(
                       0,
                       0,
                     ),
                     blurRadius: 0.0,
-                    spreadRadius: 2.0,
+                    spreadRadius: 0.0,
                   ), //BoxShadow
                   BoxShadow(
-                    color: Color.fromARGB(127, 90, 105, 172),
+                    color: Color.fromARGB(50, 90, 105, 172),
                     offset: Offset(0.0, 0.0),
                     blurRadius: 0.0,
-                    spreadRadius: 0.0,
+                    spreadRadius: 1.0,
                   ), //BoxShadow
                 ],
               ),
@@ -292,6 +293,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+        const SizedBox(width: 20),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => const HomeScreen())),
@@ -308,7 +310,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  @override
   Widget lineappbar() {
     return Container(
       height: 0,
