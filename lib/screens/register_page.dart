@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'package:app/screens/conector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -10,8 +12,15 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordControllerConfirm = TextEditingController();
   TextEditingController passwordsecondController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+
+  Future<http.Response> registerUser(
+      String username, String password, String email) async {
+    return await http.post(Uri.parse('https://localhost:7210/registro'),
+        body: {"Nome": username, "Senha": password, "Email": email});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +54,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 20),
                 _inputField("Nome", usernameController),
                 const SizedBox(height: 20),
-                _inputField("Senha", passwordController, isPassword: true),
+                _inputField("Senha", passwordController),
                 const SizedBox(height: 20),
-                _inputField("Confirme a senha", passwordController,
+                _inputField("Confirme a senha", passwordControllerConfirm,
                     isPassword: true),
                 const SizedBox(height: 20),
-                _inputField("Email", passwordController, isPassword: true),
+                _inputField("Email", emailController),
                 const SizedBox(height: 30),
                 _loginBtn(),
                 const SizedBox(height: 20),
@@ -101,11 +110,13 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget _loginBtn() {
     return ElevatedButton(
       onPressed: () {
+        registerUser(usernameController.text, passwordController.text,
+            emailController.text);
         debugPrint("Username : " + usernameController.text);
         debugPrint("Password : " + passwordController.text);
-        debugPrint("PasswordSecond : " + passwordsecondController.text);
+        debugPrint("PasswordSecond : " + passwordControllerConfirm.text);
         debugPrint("Email : " + emailController.text);
-        if (passwordController.text == passwordsecondController.text) {
+        if (passwordController.text == passwordControllerConfirm.text) {
           debugPrint("password está correta");
         } else {
           debugPrint("password incorrect");
