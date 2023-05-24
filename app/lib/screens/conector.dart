@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:app/screens/register_page.dart';
 import 'package:app/screens/home_page.dart';
+import 'package:app/screens/about_page.dart';
 
 class conector_basic extends StatefulWidget {
   const conector_basic({super.key});
@@ -76,7 +77,21 @@ class _conector_basicState extends State<conector_basic> {
               },
               child: const Text('home'),
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const about_page()));
+              },
+              child: const Text('sobre'),
+            ),
+          ),
         ],
       )),
     );

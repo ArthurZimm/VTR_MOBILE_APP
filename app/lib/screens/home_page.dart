@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var nomesInstrumentos = ['kailani', 'narciso'];
+  var nomesInstrumentos = ['Kailani', 'Narciso', 'Helios'];
 
   @override
   Widget build(BuildContext context) {
@@ -56,19 +56,22 @@ class _HomeScreenState extends State<HomeScreen> {
               start: 1, top: 40, end: 1, bottom: 1),
           child: CarouselSlider(
             options: CarouselOptions(height: 200),
-            items: ['assets/images/kailani.png', 'assets/images/narciso.png']
-                .map((i) {
+            items: [
+              'assets/images/kailanibanner.png',
+              'assets/images/imagemnarciso.png',
+              'assets/images/narcisooficial.png',
+            ].map((i) {
               return Builder(builder: (BuildContext context) {
                 return Container(
-                  width: 100,
+                  width: 300,
                   margin: const EdgeInsets.symmetric(horizontal: 0),
                   child: Column(
                     children: [
                       Image.asset(i),
                       const SizedBox(
-                        height: 20,
+                        height: 0,
                       ),
-                      if (i == 'assets/images/kailani.png')
+                      if (i == 'assets/images/kailanibanner.png')
                         Text(
                           nomesInstrumentos[0],
                           style: const TextStyle(
@@ -76,14 +79,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.w800,
                               color: Colors.white),
                         ),
-                      if (i == 'assets/images/narciso.png')
-                        Text(
-                          nomesInstrumentos[1],
-                          style: const TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white),
-                        ),
+                      // if (i == 'assets/images/narcisooficial.png')
+                      //   Text(
+                      //     nomesInstrumentos[1],
+                      //     style: const TextStyle(
+                      //         fontSize: 25,
+                      //         fontWeight: FontWeight.w800,
+                      //         color: Colors.white),
+                      //   ),
+                      // if (i == 'assets/images/imagemnarciso.png')
+                      //   Text(
+                      //     nomesInstrumentos[1],
+                      //     style: const TextStyle(
+                      //         fontSize: 25,
+                      //         fontWeight: FontWeight.w800,
+                      //         color: Colors.white),
+                      //   ),
                     ],
                   ),
                 );
@@ -282,8 +293,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(width: 200),
         GestureDetector(
-          onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen())),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage())),
           child: Container(
             width: 40,
             height: 40,
@@ -321,6 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
 
 // Image.asset(
 //                 'assets/images/contato.png',
