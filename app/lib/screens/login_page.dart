@@ -61,13 +61,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _icon() {
-    return Container(
-        child: Column(children: [
+    return Column(children: [
       const SizedBox(height: 20),
       SizedBox(
-        child: Image.asset('assets/images/logo.png'),
+    child: Image.asset('assets/images/logo.png'),
       )
-    ]));
+    ]);
   }
 
   Widget _inputField(String hintText, TextEditingController controller,

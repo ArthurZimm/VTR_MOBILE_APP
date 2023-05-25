@@ -19,14 +19,9 @@ class _about_pageState extends State<about_page> {
       "pedaleira Zoom G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros para investir em "
       "um setup de pedais ou mesmo em uma nova pedaleira. Contudo, a limitação financeira não foi um empecilho para ele."
       "Pelo contrário, diante deste cenário encontrou o ambiente perfeito para a idealização de um pedal, que de forma "
-      "despretensiosa se tornaria o sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador Ítalo se encontrava "
-      "insatisfeito com sua pedaleira Zoom G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros"
-      "para investir em um setup de pedais ou mesmo em uma nova pedaleira. Contudo, a limitação financeira não foi um "
-      "empecilho para ele. Pelo contrário, diante deste cenário encontrou o ambiente perfeito para a idealização de um "
-      "pedal, que de forma despretensiosa se tornaria o sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador Ítalo "
-      "se encontrava insatisfeito com sua pedaleira Zoom G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha "
-      "recursos financeiros para investir em um setup de pedais ou mesmo em uma nova pedaleira. Contudo, a limitação "
-      "financeira não foi um empecilho para ele. Pelo contrário, diante deste cenário encontrou o ambiente perfeito "
+      "despretensiosa se tornaria o sonho chamado VTR EFFECTS.";
+  String txt2 =
+      " Pelo contrário, diante deste cenário encontrou o ambiente perfeito "
       "para a idealização de um pedal, que de forma despretensiosa se tornaria o sonho chamado VTR EFFECTS.O ano era "
       "2015 e nosso fundador Ítalo se encontrava insatisfeito com sua pedaleira Zoom G1. Sonhava em desbravar o mundo "
       "dos efeitos, mas não tinha recursos financeiros para investir em um setup de pedais ou mesmo em uma nova "
@@ -34,18 +29,7 @@ class _about_pageState extends State<about_page> {
       "cenário encontrou o ambiente perfeito para a idealização de um pedal, que de forma despretensiosa se tornaria o "
       "sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador Ítalo se encontrava insatisfeito com sua pedaleira Zoom "
       "G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros para investir em um setup de "
-      "pedais ou mesmo em uma nova pedaleira. Contudo, a limitação financeira não foi um empecilho para ele. "
-      "Pelo contrário, diante deste cenário encontrou o ambiente perfeito para a idealização de um pedal, "
-      "que de forma despretensiosa se tornaria o sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador "
-      "Ítalo se encontrava insatisfeito com sua pedaleira Zoom G1. Sonhava em desbravar o mundo dos efeitos,"
-      "mas não tinha recursos financeiros para investir em um setup de pedais ou mesmo em uma nova pedaleira."
-      "Contudo, a limitação financeira não foi um empecilho para ele. Pelo contrário, diante deste cenário "
-      "encontrou o ambiente perfeito para a idealização de um pedal, que de forma despretensiosa se tornaria o "
-      "sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador Ítalo se encontrava insatisfeito com sua pedaleira "
-      "Zoom G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros para investir em um "
-      "setup de pedais ou mesmo em uma nova pedaleira. Contudo, a limitação financeira não foi um empecilho para"
-      "ele. Pelo contrário, diante deste cenário encontrou o ambiente perfeito para a idealização de um pedal, que"
-      "de forma despretensiosa se tornaria o sonho chamado VTR EFFECTS.";
+      "pedais ou mesmo em uma nova pedaleira.";
 
   @override
   Widget build(BuildContext context) {
@@ -66,17 +50,20 @@ class _about_pageState extends State<about_page> {
             child: Column(children: [
               bar(),
               lineappbar(),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               const Text(
                 'SOBRE',
                 style: TextStyle(
                   decoration: TextDecoration.none,
                   fontSize: 30,
                   fontFamily: 'Futura',
-                  color: Colors.yellow,
+                  color: Color.fromARGB(255, 251, 192, 64),
                 ),
               ),
-              const SizedBox(height: 50),
+              littlelineappbar(),
+              const SizedBox(height: 30),
+              const Image(image: AssetImage('assets/images/imagemsobre.png')),
+              const SizedBox(height: 10),
               Text(
                 texto,
                 style: const TextStyle(
@@ -86,6 +73,18 @@ class _about_pageState extends State<about_page> {
                   color: Colors.white,
                 ),
               ),
+              const SizedBox(height: 10),
+              const Image(image: AssetImage('assets/images/sentado.png')),
+              const SizedBox(height: 10),
+              Text(
+                texto,
+                style: const TextStyle(
+                  decoration: TextDecoration.none,
+                  fontSize: 15,
+                  fontFamily: 'Futura',
+                  color: Colors.white,
+                ),
+              )
             ]),
           ))),
     );
@@ -95,6 +94,17 @@ class _about_pageState extends State<about_page> {
     return Container(
       height: 0,
       width: 370,
+      decoration: const BoxDecoration(
+          border: Border(
+        bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 1),
+      )),
+    );
+  }
+
+  Widget littlelineappbar() {
+    return Container(
+      height: 0,
+      width: 80,
       decoration: const BoxDecoration(
           border: Border(
         bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 1),
