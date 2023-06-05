@@ -5,6 +5,7 @@ import 'package:app/screens/register_page.dart';
 import 'package:app/screens/home_page.dart';
 import 'package:app/screens/about_page.dart';
 import 'package:app/screens/product_page.dart';
+import 'package:app/screens/profile_page.dart';
 
 class conector_basic extends StatefulWidget {
   const conector_basic({super.key});
@@ -17,9 +18,10 @@ class _conector_basicState extends State<conector_basic> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Scaffold(
-        backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
-        body: Center(
+        child: Scaffold(
+      backgroundColor: const Color.fromRGBO(13, 14, 35, 100),
+      body: Center(
+        child: SingleChildScrollView(
             child: Column(
           children: [
             const SizedBox(height: 150),
@@ -31,8 +33,8 @@ class _conector_basicState extends State<conector_basic> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LoginPage()));
@@ -43,8 +45,8 @@ class _conector_basicState extends State<conector_basic> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => RegisterPage()));
@@ -55,8 +57,8 @@ class _conector_basicState extends State<conector_basic> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -69,8 +71,8 @@ class _conector_basicState extends State<conector_basic> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -83,8 +85,8 @@ class _conector_basicState extends State<conector_basic> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -97,8 +99,8 @@ class _conector_basicState extends State<conector_basic> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.yellow[800]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -108,9 +110,23 @@ class _conector_basicState extends State<conector_basic> {
                 child: const Text('produtos'),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const profilePage()));
+                },
+                child: const Text('Perfil'),
+              ),
+            )
           ],
         )),
       ),
-    );
+    ));
   }
 }
