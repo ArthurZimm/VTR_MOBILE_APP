@@ -1,16 +1,16 @@
-import 'package:app/screens/conector.dart';
 import 'package:app/screens/home_page.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:flutter/material.dart';
 
-class profilePage extends StatefulWidget {
-  const profilePage({super.key});
+class myProductPage extends StatefulWidget {
+  const myProductPage({super.key});
 
   @override
-  State<profilePage> createState() => _profilePageState();
+  State<myProductPage> createState() => _myProductPageState();
 }
 
-class _profilePageState extends State<profilePage> {
+class _myProductPageState extends State<myProductPage> {
+  TextEditingController idProductController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,71 +32,25 @@ class _profilePageState extends State<profilePage> {
     return Column(children: [
       bar(),
       lineappbar(),
-      const SizedBox(
-        height: 30,
+      const SizedBox(height: 50),
+      const Text(
+        'Meus Produtos',
+        textAlign: TextAlign.start,
+        style: TextStyle(
+          decoration: TextDecoration.none,
+          fontSize: 35,
+          fontFamily: 'Futura',
+          color: Color.fromARGB(255, 255, 255, 255),
+        ),
       ),
-      const Text('Perfil',
-          style: TextStyle(
-            decoration: TextDecoration.none,
-            fontSize: 50,
-            fontFamily: 'Futura',
-            color: Color.fromARGB(255, 255, 255, 255),
-          )),
-      _icon(),
-      littlelineappbar(),
-      const SizedBox(
-        height: 100,
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          profile_name("Arthur zimmermann"),
-          const SizedBox(height: 5),
-          lineappbar(),
-          const SizedBox(height: 30),
-          profile_email("arthur@gmail.com"),
-          const SizedBox(height: 5),
-          lineappbar(),
-          const SizedBox(height: 30),
-        ],
-      ),
-      const SizedBox(height: 20),
-      _productBtn()
+      const SizedBox(height: 50),
+      _inputField("Id", idProductController),
+      const SizedBox(height: 50),
+      _sendProdBtn(),
     ]);
   }
 
-  Widget profile_name(String name) {
-    return Text('Nome:' + '   $name',
-        textAlign: TextAlign.start,
-        style: const TextStyle(
-          decoration: TextDecoration.none,
-          fontSize: 20,
-          fontFamily: 'Futura',
-          color: Color.fromARGB(255, 255, 255, 255),
-        ));
-  }
-
-  Widget profile_email(String email) {
-    return Text('Email:' + '   $email',
-        textAlign: TextAlign.start,
-        style: const TextStyle(
-          decoration: TextDecoration.none,
-          fontSize: 20,
-          fontFamily: 'Futura',
-          color: Color.fromARGB(255, 255, 255, 255),
-        ));
-  }
-
-  Widget _icon() {
-    return Column(children: [
-      const SizedBox(height: 10),
-      SizedBox(
-        height: 150,
-        child: Image.asset('assets/images/logo.png'),
-      )
-    ]);
-  }
-
+  @override
   Widget bar() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -159,22 +113,35 @@ class _profilePageState extends State<profilePage> {
     );
   }
 
-  Widget littlelineappbar() {
-    return Container(
-      height: 0,
-      width: 100,
-      decoration: const BoxDecoration(
-          border: Border(
-        bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 1),
-      )),
+  Widget MeusProdutos() {
+    return Column(
+      children: [],
     );
   }
 
-  Widget _productBtn() {
+  Widget _inputField(String hintText, TextEditingController controller,
+      {isPassword = false}) {
+    var border = OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: Colors.white));
+
+    return TextField(
+      style: const TextStyle(color: Colors.white),
+      controller: controller,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: const TextStyle(color: Colors.white),
+        enabledBorder: border,
+        focusedBorder: border,
+      ),
+      obscureText: isPassword,
+    );
+  }
+
+  Widget _sendProdBtn() {
     return ElevatedButton(
       onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
+        debugPrint("Id : " + idProductController.text);
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
@@ -183,9 +150,9 @@ class _profilePageState extends State<profilePage> {
         padding: const EdgeInsets.symmetric(vertical: 16),
       ),
       child: const SizedBox(
-          width: 300,
+          width: 120,
           child: Text(
-            "Produtos",
+            "Enviar",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20),
           )),

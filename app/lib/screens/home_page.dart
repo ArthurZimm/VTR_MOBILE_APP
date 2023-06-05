@@ -334,8 +334,3 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 
-// Image.asset(
-//                 'assets/images/contato.png',
-//                 width: 100,
-//                 height: 100,
-//               )

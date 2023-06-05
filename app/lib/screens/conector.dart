@@ -6,6 +6,7 @@ import 'package:app/screens/home_page.dart';
 import 'package:app/screens/about_page.dart';
 import 'package:app/screens/product_page.dart';
 import 'package:app/screens/profile_page.dart';
+import 'package:app/screens/my_product_page.dart';
 
 class conector_basic extends StatefulWidget {
   const conector_basic({super.key});
@@ -122,6 +123,20 @@ class _conector_basicState extends State<conector_basic> {
                           builder: (context) => const profilePage()));
                 },
                 child: const Text('Perfil'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[800]),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const myProductPage()));
+                },
+                child: const Text('meus produtos'),
               ),
             )
           ],
