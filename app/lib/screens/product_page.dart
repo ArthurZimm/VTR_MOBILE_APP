@@ -1,5 +1,8 @@
 import 'package:app/screens/login_page.dart';
+import 'package:app/screens/produtos/Helios.dart';
+import 'package:app/screens/produtos/kailania.dart';
 import 'package:flutter/material.dart';
+import 'package:app/screens/produtos/Narciso.dart';
 
 class productPage extends StatefulWidget {
   const productPage({super.key});
@@ -40,8 +43,10 @@ class _productPageState extends State<productPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const kailaniaPage())),
                   child: Container(
                     width: 250,
                     height: 250,
@@ -85,10 +90,10 @@ class _productPageState extends State<productPage> {
           ),
           const SizedBox(height: 20),
           const Text(
-            'Kailania',
+            'KAILANI REVERB',
             style: TextStyle(
               decoration: TextDecoration.none,
-              fontSize: 40,
+              fontSize: 30,
               fontFamily: 'futura',
               color: Colors.white,
             ),
@@ -102,8 +107,10 @@ class _productPageState extends State<productPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               GestureDetector(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage())),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NarcisoPage())),
                 child: Container(
                   width: 250,
                   height: 250,
@@ -143,10 +150,10 @@ class _productPageState extends State<productPage> {
           ),
           const SizedBox(height: 20),
           const Text(
-            'Kailani',
+            'NARCISO DELAY',
             style: TextStyle(
               decoration: TextDecoration.none,
-              fontSize: 40,
+              fontSize: 30,
               fontFamily: 'Futura',
               color: Colors.white,
             ),
@@ -160,14 +167,16 @@ class _productPageState extends State<productPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               GestureDetector(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage())),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const heliosPage())),
                 child: Container(
                   width: 250,
                   height: 250,
                   decoration: BoxDecoration(
                     image: const DecorationImage(
-                        image: AssetImage('assets/images/narciso.png')),
+                        image: AssetImage('assets/images/helios.png')),
                     border: Border.all(
                         width: 1,
                         color: const Color.fromARGB(255, 251, 192, 64)),
@@ -205,7 +214,7 @@ class _productPageState extends State<productPage> {
           ),
           const SizedBox(height: 20),
           const Text(
-            'Helios',
+            'HELIOS OVERDRIVE',
             style: TextStyle(
               decoration: TextDecoration.none,
               fontSize: 30,
