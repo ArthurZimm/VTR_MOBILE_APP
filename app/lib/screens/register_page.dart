@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'package:app/screens/conector.dart';
+import 'package:app/screens/signupservice/signup_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:http/http.dart' as http;
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -16,11 +19,24 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController passwordsecondController = TextEditingController();
   TextEditingController emailController = TextEditingController();
 
-  Future<http.Response> registerUser(
-      String username, String password, String email) async {
-    return await http.post(Uri.parse('https://localhost:7210/registro'),
-        body: {"Nome": username, "Senha": password, "Email": email});
-  }
+  // static const _baseUrl =
+  //     'https://database-effects-default-rtdb.firebaseio.com/';
+  // Future<void> enviarDados(String nome, String senha, String email) async {
+  //   var url = Uri.parse('$_baseUrl/users.json');
+  //   var headers = {'Content-Type': 'application/json'};
+  //   var body = jsonEncode({'nome': nome, 'senha': senha, 'email': email});
+
+  //   try {
+  //     var response = await http.post(url, headers: headers, body: body);
+  //     if (response.statusCode == 200) {
+  //       print('Registro adicionado com sucesso!');
+  //     } else {
+  //       print('Falha ao adicionar o registro. Status: ${response.statusCode}');
+  //     }
+  //   } catch (e) {
+  //     print('Ocorreu um erro durante a requisição: $e');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -109,15 +125,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _loginBtn() {
     return ElevatedButton(
-      onPressed: () {
-        registerUser(usernameController.text, passwordController.text,
-            emailController.text);
-        debugPrint("Username : " + usernameController.text);
-        debugPrint("Password : " + passwordController.text);
-        debugPrint("PasswordSecond : " + passwordControllerConfirm.text);
-        debugPrint("Email : " + emailController.text);
+      onPressed: () async {
         if (passwordController.text == passwordControllerConfirm.text) {
           debugPrint("password está correta");
+          SignupService().signUp(
+            emailController.text,
+            passwordController.text,
+          );
         } else {
           debugPrint("password incorrect");
         }
