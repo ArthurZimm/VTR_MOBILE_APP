@@ -1,54 +1,22 @@
-import 'package:app/screens/about_page.dart';
-
+import 'package:app/services/auth_services.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:app/screens/login_page.dart';
 import 'package:app/splashscreen/my_splash_screen.dart';
+import 'meu_aplicativo.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MySplashScreen(),
-      //const LoginPage()
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-              Color.fromARGB(255, 1, 1, 32),
-              Color.fromARGB(255, 1, 1, 32),
-              Color.fromARGB(255, 41, 70, 114),
-            ])),
-        child: SizedBox(
-          width: 200,
-          height: 200,
-          child: Image.asset('assets/images/logo.png'),
-        ));
-  }
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthService()),
+      ],
+      child: MeuAplicativo(),
+    ),
+  );
 }
 
 

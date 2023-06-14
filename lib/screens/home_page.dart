@@ -1,3 +1,4 @@
+import 'package:app/screens/my_product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:app/screens/login_page.dart';
@@ -293,8 +294,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(width: 200),
         GestureDetector(
-          onTap: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginPage())),
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => myProductPage())),
           child: Container(
             width: 40,
             height: 40,
@@ -332,10 +333,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-// Image.asset(
-//                 'assets/images/contato.png',
-//                 width: 100,
-//                 height: 100,
-//               )

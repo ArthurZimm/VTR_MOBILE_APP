@@ -30,14 +30,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
-
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.2.1
-  get: ^3.25.4
-  http: ^0.13.6 
-  
-
+  get: ^4.6.5
+  http: ^1.0.0 
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  provider: ^6.0.5
 
 
 
@@ -57,7 +56,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  
+  
+    
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -78,6 +79,11 @@ flutter:
     - assets/images/imagemnarciso.png
     - assets/images/narcisooficial.png
     - assets/images/kailanibanner.png
+    - assets/images/helios.png
+    - assets/images/imagemsobre.png
+    - assets/images/sentado.png
+
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -100,6 +106,21 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+  #   - family: Montserrat
+  #     fonts:
+  #       - asset: fonts/Montserrat-Regular.ttf
+  #       - asset: fonts/Montserrat-Italic.ttf
+  #         style: italic
+  #       - asset: fonts/Montserrat-Bold.ttf
+  #         weight: 700
+  #   - family: RobotoMono
+  #     fonts:
+  #       - asset: fonts/RobotoMono-Regular.ttf
+  #       - asset: fonts/RobotoMono-Bold.ttf
+  #         weight: 700
+  #   - family: Pacifico
+  #     fonts:
+  #       - asset: fonts/Pacifico-Regular.ttf
+    
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
