@@ -1,15 +1,22 @@
 import 'package:app/screens/home_page.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class myProductPage extends StatefulWidget {
-  const myProductPage({super.key});
-
   @override
   State<myProductPage> createState() => _myProductPageState();
 }
 
 class _myProductPageState extends State<myProductPage> {
+
+
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> _addProduct(String produto) async {
+    await _firestore.collection('Produtos').add({"Nome": produto});
+  }
+
   TextEditingController idProductController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -141,6 +148,7 @@ class _myProductPageState extends State<myProductPage> {
   Widget _sendProdBtn() {
     return ElevatedButton(
       onPressed: () {
+        _addProduct(idProductController.text);
         debugPrint("Id : " + idProductController.text);
       },
       style: ElevatedButton.styleFrom(
