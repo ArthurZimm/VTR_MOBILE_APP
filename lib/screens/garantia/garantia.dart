@@ -6,34 +6,20 @@ import 'package:app/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class about_page extends StatefulWidget {
-  const about_page({super.key});
+class garantia_page extends StatefulWidget {
+  const garantia_page({super.key});
 
   @override
-  State<about_page> createState() => _about_pageState();
+  State<garantia_page> createState() => _garantia_pageState();
 }
 
-class _about_pageState extends State<about_page> {
-  String texto =
-      "O ano era 2015 e nosso fundador Ítalo se encontrava insatisfeito com sua pedaleira Zoom G1."
-      "Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros para investir em um setup de pedais "
-      "ou mesmo em uma nova pedaleira. Contudo, a limitação financeira não foi um empecilho para ele. Pelo contrário, "
-      "diante deste cenário encontrou o ambiente perfeito para a idealização de um pedal, que de forma despretensiosa "
-      "se tornaria o sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador Ítalo se encontrava insatisfeito com sua "
-      "pedaleira Zoom G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros para investir em "
-      "um setup de pedais ou mesmo em uma nova pedaleira. Contudo, a limitação financeira não foi um empecilho para ele."
-      "Pelo contrário, diante deste cenário encontrou o ambiente perfeito para a idealização de um pedal, que de forma "
-      "despretensiosa se tornaria o sonho chamado VTR EFFECTS.";
-  String txt2 =
-      " Pelo contrário, diante deste cenário encontrou o ambiente perfeito "
-      "para a idealização de um pedal, que de forma despretensiosa se tornaria o sonho chamado VTR EFFECTS.O ano era "
-      "2015 e nosso fundador Ítalo se encontrava insatisfeito com sua pedaleira Zoom G1. Sonhava em desbravar o mundo "
-      "dos efeitos, mas não tinha recursos financeiros para investir em um setup de pedais ou mesmo em uma nova "
-      "pedaleira. Contudo, a limitação financeira não foi um empecilho para ele. Pelo contrário, diante deste "
-      "cenário encontrou o ambiente perfeito para a idealização de um pedal, que de forma despretensiosa se tornaria o "
-      "sonho chamado VTR EFFECTS.O ano era 2015 e nosso fundador Ítalo se encontrava insatisfeito com sua pedaleira Zoom "
-      "G1. Sonhava em desbravar o mundo dos efeitos, mas não tinha recursos financeiros para investir em um setup de "
-      "pedais ou mesmo em uma nova pedaleira.";
+class _garantia_pageState extends State<garantia_page> {
+  String texto = "Garantimos a qualidade dos nossos produtos e serviços, "
+      "oferecendo uma garantia abrangente contra defeitos de fabricação."
+      "Estamos comprometidos em superar suas expectativas e fornecer uma experiência de "
+      "compra satisfatória. Nossa equipe de atendimento ao cliente está disponível para "
+      "ajudar em qualquer dúvida ou problema. "
+      "Sua satisfação é nossa prioridade.";
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +42,7 @@ class _about_pageState extends State<about_page> {
               lineappbar(),
               const SizedBox(height: 30),
               const Text(
-                'SOBRE',
+                'GARANTIA',
                 style: TextStyle(
                   decoration: TextDecoration.none,
                   fontSize: 30,
@@ -66,7 +52,7 @@ class _about_pageState extends State<about_page> {
               ),
               littlelineappbar(),
               const SizedBox(height: 30),
-              const Image(image: AssetImage('assets/images/imagemsobre.png')),
+              const Image(image: AssetImage('assets/images/logo.png')),
               const SizedBox(height: 10),
               Text(
                 texto,
@@ -77,18 +63,6 @@ class _about_pageState extends State<about_page> {
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 10),
-              const Image(image: AssetImage('assets/images/sentado.png')),
-              const SizedBox(height: 10),
-              Text(
-                texto,
-                style: const TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: 15,
-                  fontFamily: 'Futura',
-                  color: Colors.white,
-                ),
-              )
             ]),
           ))),
     );

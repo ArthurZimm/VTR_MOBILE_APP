@@ -1,5 +1,11 @@
+import 'package:app/screens/prod.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/conector.dart';
+import 'package:provider/provider.dart';
+
+import '../services/auth_services.dart';
+import 'home_page.dart';
+import 'my_product_page.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
@@ -35,16 +41,17 @@ class _ContactPageState extends State<ContactPage> {
 
   Widget _page() {
     return Padding(
-      
         padding: const EdgeInsets.all(32.0),
         child: SingleChildScrollView(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _icon(),
+                bar(),
+                lineappbar(),
+                const SizedBox(height: 70),
                 _extraText(),
-                const SizedBox(height: 12),
+                const SizedBox(height: 50),
                 _inputField("Nome", nomeController),
                 const SizedBox(height: 12),
                 _inputField("Email", emailController),
@@ -53,18 +60,29 @@ class _ContactPageState extends State<ContactPage> {
                 const SizedBox(height: 12),
                 _sendBtn(),
                 const SizedBox(height: 1),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const conector_basic()));
-                    },
-                    child: const Text("Voltar"))
+                // ElevatedButton(
+                //     onPressed: () {
+                //       Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //               builder: (context) => const conector_basic()));
+                //     },
+                //     child: const Text("Voltar"))
               ],
             ),
           ),
         ));
+  }
+
+  Widget lineappbar() {
+    return Container(
+      height: 0,
+      width: 370,
+      decoration: const BoxDecoration(
+          border: Border(
+        bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 1),
+      )),
+    );
   }
 
   Widget _icon() {
@@ -136,9 +154,73 @@ class _ContactPageState extends State<ContactPage> {
 
   Widget _extraText() {
     return const Text(
-      "Contato",
+      "CONTATO",
       textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 16, color: Colors.white),
+      style: TextStyle(fontSize: 46, color: Colors.white),
+    );
+  }
+
+  @override
+  Widget bar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        const Padding(
+            padding: EdgeInsets.all(0),
+            child: Padding(
+                padding: EdgeInsetsDirectional.only(
+                    start: 1, top: 85, end: 1, bottom: 10))),
+        GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen())),
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: const BoxDecoration(
+              image:
+                  DecorationImage(image: AssetImage('assets/images/logo.png')),
+            ),
+          ),
+        ),
+        const SizedBox(width: 120),
+        GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => myProductPage())),
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/profile.png')),
+            ),
+          ),
+        ),
+        const SizedBox(width: 20),
+        GestureDetector(
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ProdutosPage())),
+          child: Container(
+            width: 20,
+            height: 40,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/notification.png')),
+            ),
+          ),
+        ),
+        const SizedBox(width: 20),
+        GestureDetector(
+          onTap: () => context.read<AuthService>().logout(),
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/logout.png')),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:app/models/produtos.dart';
 import 'package:app/models/produtos.dart';
+import 'package:app/screens/garantia/garantia.dart';
 import 'package:app/screens/repositories/favoritas.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,8 +18,8 @@ class ProdutoCard extends StatefulWidget {
 
 class _MoedaCardState extends State<ProdutoCard> {
   static Map<String, Color> precoColor = <String, Color>{
-    'up': Colors.teal,
-    'down': Colors.indigo,
+    'up': Color.fromARGB(255, 0, 60, 255),
+    'down': Color.fromARGB(255, 0, 42, 255),
   };
 
   @override
@@ -38,7 +39,7 @@ class _MoedaCardState extends State<ProdutoCard> {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(left: 12),
+                  margin: EdgeInsets.only(left: 40),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -63,7 +64,7 @@ class _MoedaCardState extends State<ProdutoCard> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 decoration: BoxDecoration(
-                  color: precoColor['down']!.withOpacity(0.05),
+                  color: precoColor['down']!.withOpacity(0.15),
                   border: Border.all(
                     color: precoColor['down']!.withOpacity(0.4),
                   ),
@@ -83,6 +84,17 @@ class _MoedaCardState extends State<ProdutoCard> {
                       },
                     ),
                   ),
+                  PopupMenuItem(
+                    child: ListTile(
+                      title: Text('Garantia'),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const garantia_page()));
+                      },
+                    ),
+                  )
                 ],
               ),
             ],

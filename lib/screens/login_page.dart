@@ -66,109 +66,159 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(top: 100),
-          child: Form(
-            key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  titulo,
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: -1.5,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(24),
-                  child: TextFormField(
-                    controller: email,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 1, 1, 32),
+              Color.fromARGB(255, 1, 1, 32),
+              Color.fromARGB(255, 41, 70, 114),
+            ],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _icon(),
+                  Text(
+                    titulo,
+                    style: const TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: -1.5,
+                      color: Colors.white,
                     ),
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Informe o email corretamente!';
-                      }
-                      return null;
-                    },
                   ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
-                  child: TextFormField(
-                    controller: senha,
-                    obscureText: true,
-                    
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Senha',
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Informa sua senha!';
-                      } else if (value.length < 6) {
-                        return 'Sua senha deve ter no mínimo 6 caracteres';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(24.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        if (isLogin) {
-                          login();
-                        } else {
-                          registrar();
+                  Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: TextFormField(
+                      controller: email,
+                      style:
+                          const TextStyle(color: Color.fromARGB(255, 7, 6, 6)),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 0, 0, 0), width: 5),
+                        ),
+                        filled: true, // Define o campo como preenchido
+                        fillColor: Color.fromARGB(255, 255, 255,
+                            255), // Define a cor de fundo do campo
+                        labelText: 'Email',
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 0, 0,
+                                0)), // Define a cor do texto do rótulo
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Informe o email corretamente!';
                         }
-                      }
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: (loading)
-                          ? [
-                              Padding(
-                                padding: EdgeInsets.all(16),
-                                child: SizedBox(
-                                  width: 24,
-                                  height: 24,
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
+                        return null;
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                    child: TextFormField(
+                      controller: senha,
+                      obscureText: true,
+                      style:
+                          const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 0, 0, 0), width: 5),
+                        ),
+                        filled: true, // Define o campo como preenchido
+                        fillColor:
+                            Colors.white, // Define a cor de fundo do campo
+                        labelText: 'Senha',
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 0, 0,
+                                0)), // Define a cor do texto do rótulo
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Informa sua senha!';
+                        } else if (value.length < 6) {
+                          return 'Sua senha deve ter no mínimo 6 caracteres';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          if (isLogin) {
+                            login();
+                          } else {
+                            registrar();
+                          }
+                        }
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: (loading)
+                            ? [
+                                const Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: SizedBox(
+                                    width: 24,
+                                    height: 24,
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )
+                              ]
+                            : [
+                                const Icon(Icons.check),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    actionButton,
+                                    style: const TextStyle(fontSize: 20),
                                   ),
                                 ),
-                              )
-                            ]
-                          : [
-                              Icon(Icons.check),
-                              Padding(
-                                padding: EdgeInsets.all(16.0),
-                                child: Text(
-                                  actionButton,
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                              ),
-                            ],
+                              ],
+                      ),
                     ),
                   ),
-                ),
-                TextButton(
-                  onPressed: () => setFormAction(!isLogin),
-                  child: Text(toggleButton),
-                ),
-              ],
+                  TextButton(
+                    onPressed: () => setFormAction(!isLogin),
+                    child: Text(toggleButton,
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.white)),
+                  ),
+                  const SizedBox(
+                    height: 500,
+                  )
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget _icon() {
+    return Container(
+        child: Column(children: [
+      SizedBox(
+        child: Image.asset('assets/images/logo.png'),
+      )
+    ]));
   }
 }

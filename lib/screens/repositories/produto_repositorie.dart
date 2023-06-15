@@ -4,17 +4,17 @@ class ProdutoRepository {
   static List<Produto> tabela = [
     Produto(
       icone: 'assets/images/kailani.png',
-      nome: 'Kailani',
+      nome: 'KAILANI REVERB',
       sigla: 'KL',
     ),
     Produto(
       icone: 'assets/images/helios.png',
-      nome: 'Helios',
+      nome: 'HELIOS OVERDRIVE',
       sigla: 'HL',
     ),
     Produto(
       icone: 'assets/images/narciso.png',
-      nome: 'Narciso',
+      nome: 'NARCISO DELAY',
       sigla: 'Nr',
     ),
   ];

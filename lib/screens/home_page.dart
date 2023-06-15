@@ -1,5 +1,7 @@
+import 'package:app/screens/about_page.dart';
 import 'package:app/screens/my_product_page.dart';
 import 'package:app/screens/prod.dart';
+import 'package:app/screens/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:app/screens/login_page.dart';
@@ -16,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var nomesInstrumentos = ['Kailani', 'Narciso', 'Helios'];
+  var nomesInstrumentos = ['Narciso', 'Helios', 'Kailani'];
 
   @override
   Widget build(BuildContext context) {
@@ -84,22 +86,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.w800,
                               color: Colors.white),
                         ),
-                      // if (i == 'assets/images/narcisooficial.png')
-                      //   Text(
-                      //     nomesInstrumentos[1],
-                      //     style: const TextStyle(
-                      //         fontSize: 25,
-                      //         fontWeight: FontWeight.w800,
-                      //         color: Colors.white),
-                      //   ),
-                      // if (i == 'assets/images/imagemnarciso.png')
-                      //   Text(
-                      //     nomesInstrumentos[1],
-                      //     style: const TextStyle(
-                      //         fontSize: 25,
-                      //         fontWeight: FontWeight.w800,
-                      //         color: Colors.white),
-                      //   ),
+                      if (i == 'assets/images/narcisooficial.png')
+                        Text(
+                          nomesInstrumentos[2],
+                          style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
+                        ),
+                      if (i == 'assets/images/imagemnarciso.png')
+                        Text(
+                          nomesInstrumentos[1],
+                          style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
+                        ),
                     ],
                   ),
                 );
@@ -114,8 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           GestureDetector(
-            onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => LoginPage())),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const productPage())),
             child: Container(
               width: 120,
               height: 120,
@@ -195,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           GestureDetector(
             onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ContactPage())),
+                MaterialPageRoute(builder: (context) => const about_page())),
             child: Container(
               width: 120,
               height: 120,
@@ -296,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        const SizedBox(width: 200),
+        const SizedBox(width: 120),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => myProductPage())),
@@ -311,8 +313,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(width: 20),
         GestureDetector(
-          onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ProdutosPage())),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ProdutosPage())),
           child: Container(
             width: 20,
             height: 40,

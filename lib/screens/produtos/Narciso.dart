@@ -1,21 +1,19 @@
-import 'package:app/screens/conector.dart';
 import 'package:app/screens/home_page.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:app/screens/my_product_page.dart';
 import 'package:app/screens/prod.dart';
+import 'package:app/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../services/auth_services.dart';
-
-class profilePage extends StatefulWidget {
-  const profilePage({super.key});
+class NarcisoPage extends StatefulWidget {
+  const NarcisoPage({super.key});
 
   @override
-  State<profilePage> createState() => _profilePageState();
+  State<NarcisoPage> createState() => _NarcisoPageState();
 }
 
-class _profilePageState extends State<profilePage> {
+class _NarcisoPageState extends State<NarcisoPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,72 +32,70 @@ class _profilePageState extends State<profilePage> {
   }
 
   Widget _page() {
-    return Column(children: [
-      bar(),
-      lineappbar(),
-      const SizedBox(
-        height: 30,
-      ),
-      const Text('Perfil',
-          style: TextStyle(
-            decoration: TextDecoration.none,
-            fontSize: 50,
-            fontFamily: 'Futura',
-            color: Color.fromARGB(255, 255, 255, 255),
-          )),
-      _icon(),
-      littlelineappbar(),
-      const SizedBox(
-        height: 100,
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          profile_name("Arthur zimmermann"),
-          const SizedBox(height: 5),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SingleChildScrollView(
+          child: Center(
+        child: Column(children: [
+          bar(),
           lineappbar(),
-          const SizedBox(height: 30),
-          profile_email("arthur@gmail.com"),
-          const SizedBox(height: 5),
-          lineappbar(),
-          const SizedBox(height: 30),
-        ],
-      ),
-      const SizedBox(height: 20),
-      _productBtn()
-    ]);
-  }
-
-  Widget profile_name(String name) {
-    return Text('Nome:' + '   $name',
-        textAlign: TextAlign.start,
-        style: const TextStyle(
-          decoration: TextDecoration.none,
-          fontSize: 20,
-          fontFamily: 'Futura',
-          color: Color.fromARGB(255, 255, 255, 255),
-        ));
-  }
-
-  Widget profile_email(String email) {
-    return Text('Email:' + '   $email',
-        textAlign: TextAlign.start,
-        style: const TextStyle(
-          decoration: TextDecoration.none,
-          fontSize: 20,
-          fontFamily: 'Futura',
-          color: Color.fromARGB(255, 255, 255, 255),
-        ));
-  }
-
-  Widget _icon() {
-    return Column(children: [
-      const SizedBox(height: 10),
-      SizedBox(
-        height: 150,
-        child: Image.asset('assets/images/logo.png'),
-      )
-    ]);
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 350,
+                  height: 350,
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                        image: AssetImage('assets/images/kailanibanner.png')),
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromARGB(0, 0, 0, 0),
+                        offset: Offset(
+                          0,
+                          0,
+                        ),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Color.fromARGB(0, 0, 0, 0),
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 1.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Text(
+            'NARCISO DELAY - Gold Series',
+            style: TextStyle(
+              decoration: TextDecoration.none,
+              fontSize: 25,
+              fontFamily: 'futura',
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 20),
+          littleLineappbar(),
+          const SizedBox(height: 20),
+          const Text(
+            'Um delay stereo de alta qualidade com uma ampla gama de opções de personalização para dar ao seu som a ambiência perfeita. Com quatros modos de delays diferentes, você pode escolher desde um clássico delay analógico até um delay com pitch bem psicodélico.',
+            style: TextStyle(
+              decoration: TextDecoration.none,
+              fontSize: 15,
+              fontFamily: 'futura',
+              color: Colors.white,
+            ),
+          ),
+        ]),
+      )),
+    );
   }
 
   @override
@@ -124,7 +120,7 @@ class _profilePageState extends State<profilePage> {
             ),
           ),
         ),
-        const SizedBox(width: 200),
+        const SizedBox(width: 120),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => myProductPage())),
@@ -177,36 +173,13 @@ class _profilePageState extends State<profilePage> {
     );
   }
 
-  Widget littlelineappbar() {
+  Widget littleLineappbar() {
     return Container(
-      height: 0,
-      width: 100,
+      width: 125,
       decoration: const BoxDecoration(
           border: Border(
         bottom: BorderSide(color: Color.fromARGB(255, 251, 192, 64), width: 1),
       )),
-    );
-  }
-
-  Widget _productBtn() {
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
-      },
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        primary: Color.fromARGB(255, 251, 192, 64),
-        onPrimary: Color.fromARGB(255, 0, 0, 0),
-        padding: const EdgeInsets.symmetric(vertical: 16),
-      ),
-      child: const SizedBox(
-          width: 300,
-          child: Text(
-            "Produtos",
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20),
-          )),
     );
   }
 }
