@@ -86,7 +86,9 @@ flutter:
     - assets/images/imagemsobre.png
     - assets/images/sentado.png
     - assets/images/logout.png
-
+    - assets/images/victor.jpeg
+    - assets/images/felipe.jpg
+    - assets/images/sefer.jpeg
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

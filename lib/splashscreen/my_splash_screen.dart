@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:app/screens/conector.dart';
+
+import 'package:app/screens/login_page.dart';
 import 'package:flutter/material.dart';
 //import 'package:app/screens/login_page.dart';
 
@@ -13,8 +14,7 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   splashScreenTimer() {
     Timer(const Duration(seconds: 4), () async {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (c) => conector_basic()));
+      Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
     });
   }
 

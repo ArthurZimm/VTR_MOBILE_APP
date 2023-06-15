@@ -1,4 +1,4 @@
-import 'package:app/screens/conector.dart';
+
 import 'package:app/screens/home_page.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:app/screens/my_product_page.dart';

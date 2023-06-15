@@ -1,6 +1,6 @@
 import 'package:app/screens/prod.dart';
 import 'package:flutter/material.dart';
-import 'package:app/screens/conector.dart';
+
 import 'package:provider/provider.dart';
 
 import '../services/auth_services.dart';

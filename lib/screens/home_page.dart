@@ -1,4 +1,5 @@
 import 'package:app/screens/about_page.dart';
+import 'package:app/screens/artistas.dart';
 import 'package:app/screens/my_product_page.dart';
 import 'package:app/screens/prod.dart';
 import 'package:app/screens/product_page.dart';
@@ -18,7 +19,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var nomesInstrumentos = ['Narciso', 'Helios', 'Kailani'];
+  var nomesInstrumentos = [
+    'NARCISO DELAY',
+    'HELIOS OVERDRIVE',
+    'KAILANI REVERB'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(backgroundColor: Colors.transparent, body: _page()),
     );
   }
-
-  // Widget bar() {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       actions: [
-  //         IconButton(
-  //             onPressed: () {
-  //               Navigator.push(context,
-  //                   MaterialPageRoute(builder: (context) => LoginPage()));
-  //             },
-  //             icon: Icon(Icons.notifications))
-  //       ],
-  //     ),
-  //   );
-  // }
 
   Widget _page() {
     return Column(children: [
@@ -76,13 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Image.asset(i),
                       const SizedBox(
-                        height: 0,
+                        height: 10,
                       ),
                       if (i == 'assets/images/kailanibanner.png')
                         Text(
                           nomesInstrumentos[0],
                           style: const TextStyle(
-                              fontSize: 25,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                               color: Colors.white),
                         ),
@@ -90,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           nomesInstrumentos[2],
                           style: const TextStyle(
-                              fontSize: 25,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                               color: Colors.white),
                         ),
@@ -98,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           nomesInstrumentos[1],
                           style: const TextStyle(
-                              fontSize: 25,
+                              fontSize: 15,
                               fontWeight: FontWeight.w800,
                               color: Colors.white),
                         ),
@@ -154,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(width: 60),
           GestureDetector(
             onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ContactPage())),
+                MaterialPageRoute(builder: (context) => const Artistas_page())),
             child: Container(
               width: 120,
               height: 120,
