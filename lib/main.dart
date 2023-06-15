@@ -1,3 +1,4 @@
+import 'package:app/screens/repositories/favoritas.dart';
 import 'package:app/services/auth_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,9 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AuthService()),
+        ChangeNotifierProvider(
+            create: (context) =>
+                FavoritasRepository(auth: context.read<AuthService>()))
       ],
       child: MeuAplicativo(),
     ),

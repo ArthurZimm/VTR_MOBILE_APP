@@ -1,7 +1,55 @@
-import 'package:app/screens/home_page.dart';
+import 'package:app/models/produtos.dart';
+import 'package:app/screens/repositories/favoritas.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../widgets/produto_card.dart';
+
+class myProductPage extends StatefulWidget {
+  myProductPage({Key? key}) : super(key: key);
+
+  @override
+  _myProductPageState createState() => _myProductPageState();
+}
+
+class _myProductPageState extends State<myProductPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Produtos Favoritos'),
+      ),
+      body: Container(
+        color: Colors.indigo.withOpacity(0.05),
+        height: MediaQuery.of(context).size.height,
+        padding: EdgeInsets.all(12.0),
+        child: Consumer<FavoritasRepository>(
+          builder: (context, favoritas, child) {
+            return favoritas.lista.isEmpty
+                ? ListTile(
+                    leading: Icon(Icons.star),
+                    title: Text('Ainda não há moedas favoritas'),
+                  )
+                : ListView.builder(
+                    itemCount: favoritas.lista.length,
+                    itemBuilder: (_, index) {
+                      return ProdutoCard(produto: favoritas.lista[index]);
+                    },
+                  );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+
+
+/*import 'package:app/screens/home_page.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:app/services/auth_services.dart';
 
 class myProductPage extends StatefulWidget {
   @override
@@ -9,8 +57,6 @@ class myProductPage extends StatefulWidget {
 }
 
 class _myProductPageState extends State<myProductPage> {
-
-
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> _addProduct(String produto) async {
@@ -120,11 +166,6 @@ class _myProductPageState extends State<myProductPage> {
     );
   }
 
-  Widget MeusProdutos() {
-    return Column(
-      children: [],
-    );
-  }
 
   Widget _inputField(String hintText, TextEditingController controller,
       {isPassword = false}) {
@@ -167,3 +208,4 @@ class _myProductPageState extends State<myProductPage> {
     );
   }
 }
+*/

@@ -1,8 +1,12 @@
 import 'package:app/screens/my_product_page.dart';
+import 'package:app/screens/prod.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:app/screens/login_page.dart';
 import 'package:app/screens/contact_page.dart';
+import 'package:provider/provider.dart';
+
+import '../services/auth_services.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -308,13 +312,25 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(width: 20),
         GestureDetector(
           onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen())),
+              MaterialPageRoute(builder: (context) => ProdutosPage())),
+          child: Container(
+            width: 20,
+            height: 40,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/notification.png')),
+            ),
+          ),
+        ),
+        const SizedBox(width: 20),
+        GestureDetector(
+          onTap: () => context.read<AuthService>().logout(),
           child: Container(
             width: 40,
             height: 40,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/notification.png')),
+                  image: AssetImage('assets/images/logout.png')),
             ),
           ),
         )
