@@ -41,6 +41,8 @@ dependencies:
   hive: ^2.2.3
   shared_preferences: ^2.1.2
   hive_flutter: ^1.1.0
+  firebase_database: ^10.2.3
+  flutter_colorpicker: ^1.0.3
 
 
 dev_dependencies:
@@ -89,6 +91,7 @@ flutter:
     - assets/images/victor.jpeg
     - assets/images/felipe.jpg
     - assets/images/sefer.jpeg
+    - assets/images/forum.png
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

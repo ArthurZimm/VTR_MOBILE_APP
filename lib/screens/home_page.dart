@@ -1,5 +1,6 @@
 import 'package:app/screens/about_page.dart';
 import 'package:app/screens/artistas.dart';
+import 'package:app/screens/forum_page.dart';
 import 'package:app/screens/my_product_page.dart';
 import 'package:app/screens/prod.dart';
 import 'package:app/screens/product_page.dart';
@@ -289,6 +290,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         const SizedBox(width: 120),
+        GestureDetector(
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ListViewFirebase())),
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: const BoxDecoration(
+              image:
+                  DecorationImage(image: AssetImage('assets/images/forum.png')),
+            ),
+          ),
+        ),
         GestureDetector(
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => myProductPage())),

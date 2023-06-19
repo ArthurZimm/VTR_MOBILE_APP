@@ -105,15 +105,22 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: Color.fromARGB(255, 0, 0, 0), width: 5),
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            width: 5,
+                          ),
                         ),
-                        filled: true, // Define o campo como preenchido
-                        fillColor: Color.fromARGB(255, 255, 255,
-                            255), // Define a cor de fundo do campo
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red, // Define a cor da borda de erro
+                            width: 5,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 255, 255, 255),
                         labelText: 'Email',
                         labelStyle: TextStyle(
-                            color: Color.fromARGB(255, 0, 0,
-                                0)), // Define a cor do texto do rótulo
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
                       ),
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
@@ -125,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 24.0),
                     child: TextFormField(
                       controller: senha,
                       obscureText: true,
@@ -135,19 +142,26 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: Color.fromARGB(255, 0, 0, 0), width: 5),
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            width: 5,
+                          ),
                         ),
-                        filled: true, // Define o campo como preenchido
-                        fillColor:
-                            Colors.white, // Define a cor de fundo do campo
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red, // Define a cor da borda de erro
+                            width: 5,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
                         labelText: 'Senha',
                         labelStyle: TextStyle(
-                            color: Color.fromARGB(255, 0, 0,
-                                0)), // Define a cor do texto do rótulo
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Informa sua senha!';
+                          return 'Informe sua senha!';
                         } else if (value.length < 6) {
                           return 'Sua senha deve ter no mínimo 6 caracteres';
                         }
@@ -197,13 +211,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextButton(
                     onPressed: () => setFormAction(!isLogin),
-                    child: Text(toggleButton,
-                        style:
-                            const TextStyle(fontSize: 15, color: Colors.white)),
+                    child: Text(
+                      toggleButton,
+                      style: const TextStyle(fontSize: 15, color: Colors.white),
+                    ),
                   ),
                   const SizedBox(
                     height: 500,
-                  )
+                  ),
                 ],
               ),
             ),
